@@ -1,0 +1,37 @@
+{
+    "status": 0,
+    "data": [
+        {
+            "modeName": "Viếng thăm thực địa",
+            "makerDate": null,
+            "orderNo": 1,
+            "authStatus": "A",
+            "description": null,
+            "tenantCode": null,
+            "modNo": 0,
+            "recordStatus": "O",
+            "checkerDate": null,
+            "modeCode": "FV",
+            "checkerId": null,
+            "id": 1,
+            "createDate": 1604512876794,
+            "makerId": "admin"
+        },
+        {
+            "modeName": "SKIP",
+            "makerDate": null,
+            "orderNo": 2,
+            "authStatus": "A",
+            "description": null,
+            "tenantCode": null,
+            "modNo": 0,
+            "recordStatus": "O",
+            "checkerDate": null,
+            "modeCode": "SKIP",
+            "checkerId": null,
+            "id": 2,
+            "createDate": 1604512876794,
+            "makerId": "admin"
+        }
+    ]
+}

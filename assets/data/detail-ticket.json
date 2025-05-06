@@ -1,0 +1,205 @@
+{
+    "status": 0,
+    "data": {
+        "issueName": "nVymo_DƯƠNG MINH NAM",
+        "isRequest": false,
+        "issueClassId": 1,
+        "issueClassCode": "VYMO_COLLECTION",
+        "issueClassName": "FECREDIT Vymo Collection",
+        "requestClassId": null,
+        "id": 84030,
+        "issueCode": "2020110320170729-0002009",
+        "assignee": "SEC00042",
+        "reporter": "khoa.hoang.2@fecredit.com.vn",
+        "currentTaskId": "-1",
+        "statusId": -1,
+        "statusCode": "OPEN",
+        "dueDate": null,
+        "priority": 50,
+        "watchers": [],
+        "ownerBuId": null,
+        "buId": null,
+        "buCode": null,
+        "status": {
+            "id": -1,
+            "description": "Open",
+            "companyCode": null,
+            "statusCode": "OPEN",
+            "statusName": "Open"
+        },
+        "properties": {},
+        "requestDef": null,
+        "fields": null,
+        "ticketDef": {
+            "id": 1,
+            "aggId": "37444617-243a-451e-a88a-66e9b68c1f55",
+            "issueTypeCode": "VYMO_COLLECTION",
+            "issueTypeName": "FECREDIT Vymo Collection",
+            "makerDate": 1593098223064,
+            "makerId": "son.nd@fecredit.com.vn",
+            "modNo": null,
+            "authStatus": "A",
+            "checkerDate": 1593098223064,
+            "checkerId": "son.nd@fecredit.com.vn",
+            "createDate": 1552129438628,
+            "recordStatus": "O",
+            "tenantCode": "FECREDIT",
+            "workflowId": 1,
+            "fields": [
+                {
+                    "makerDate": 1546856458017,
+                    "fieldName": "Title",
+                    "fieldCode": "title",
+                    "authStatus": "A",
+                    "fieldTypeId": 1,
+                    "valueType": {
+                        "id": 1,
+                        "valueTypeCode": "string",
+                        "valueTypeName": "Kiểu chuỗi",
+                        "valueTypeFormat": null
+                    },
+                    "modNo": null,
+                    "fieldType": {
+                        "fieldTypeCode": "FT01",
+                        "fieldTypeName": "Loại đơn giản",
+                        "id": 1
+                    },
+                    "recordStatus": "O",
+                    "checkerDate": null,
+                    "valueTypeId": 1,
+                    "checkerId": null,
+                    "id": 3,
+                    "objectId": null,
+                    "createDate": 1546856458017,
+                    "makerId": "admin",
+                    "aggId": "d5ddf984-f041-4ed0-8559-6fa573fc229d"
+                },
+                {
+                    "makerDate": 1546856457965,
+                    "fieldName": "Description",
+                    "fieldCode": "description",
+                    "authStatus": "A",
+                    "fieldTypeId": 1,
+                    "valueType": {
+                        "id": 1,
+                        "valueTypeCode": "string",
+                        "valueTypeName": "Kiểu chuỗi",
+                        "valueTypeFormat": null
+                    },
+                    "modNo": null,
+                    "fieldType": {
+                        "fieldTypeCode": "FT01",
+                        "fieldTypeName": "Loại đơn giản",
+                        "id": 1
+                    },
+                    "recordStatus": "O",
+                    "checkerDate": null,
+                    "valueTypeId": 1,
+                    "checkerId": null,
+                    "id": 4,
+                    "objectId": null,
+                    "createDate": 1546856457965,
+                    "makerId": "admin",
+                    "aggId": "6bc26620-01f1-4955-b453-d1d9d1d35193"
+                },
+                {
+                    "makerDate": 1546860289804,
+                    "fieldName": "Attachment",
+                    "fieldCode": "attachment",
+                    "authStatus": "A",
+                    "fieldTypeId": 2,
+                    "valueType": {
+                        "id": 5,
+                        "valueTypeCode": "json_array",
+                        "valueTypeName": "Kiểu mảng",
+                        "valueTypeFormat": "|"
+                    },
+                    "modNo": null,
+                    "fieldType": {
+                        "fieldTypeCode": "FT02",
+                        "fieldTypeName": "Loại phức tạp",
+                        "id": 2
+                    },
+                    "recordStatus": "O",
+                    "checkerDate": null,
+                    "valueTypeId": 5,
+                    "checkerId": null,
+                    "id": 5,
+                    "objectId": null,
+                    "createDate": 1546860289804,
+                    "makerId": "admin",
+                    "aggId": "570f5cb2-1f5b-47cf-8a32-1b7b8f85fe8a"
+                },
+                {
+                    "makerDate": 1603991639372,
+                    "fieldName": "Contract Agg Id",
+                    "fieldCode": "contractAggId",
+                    "authStatus": "A",
+                    "fieldTypeId": 1,
+                    "valueType": {
+                        "id": 1,
+                        "valueTypeCode": "string",
+                        "valueTypeName": "Kiểu chuỗi",
+                        "valueTypeFormat": null
+                    },
+                    "modNo": 0,
+                    "fieldType": {
+                        "fieldTypeCode": "FT01",
+                        "fieldTypeName": "Loại đơn giản",
+                        "id": 1
+                    },
+                    "recordStatus": "O",
+                    "checkerDate": 1603991639372,
+                    "valueTypeId": 1,
+                    "checkerId": "system",
+                    "id": 1,
+                    "objectId": null,
+                    "createDate": 1603991639372,
+                    "makerId": "system",
+                    "aggId": "63e60007-3652-4cb0-8dfa-534283788cfd"
+                },
+                {
+                    "makerDate": 1603991639376,
+                    "fieldName": "Customer Agg Id",
+                    "fieldCode": "customerAggId",
+                    "authStatus": "A",
+                    "fieldTypeId": 1,
+                    "valueType": {
+                        "id": 1,
+                        "valueTypeCode": "string",
+                        "valueTypeName": "Kiểu chuỗi",
+                        "valueTypeFormat": null
+                    },
+                    "modNo": 0,
+                    "fieldType": {
+                        "fieldTypeCode": "FT01",
+                        "fieldTypeName": "Loại đơn giản",
+                        "id": 1
+                    },
+                    "recordStatus": "O",
+                    "checkerDate": 1603991639376,
+                    "valueTypeId": 1,
+                    "checkerId": "system",
+                    "id": 2,
+                    "objectId": null,
+                    "createDate": 1603991639376,
+                    "makerId": "system",
+                    "aggId": "50985d46-eca4-40fe-ab1a-1a40d54d7b2d"
+                }
+            ]
+        },
+        "slaInfo": null,
+        "createDate": 1604396709430,
+        "aggId": "2020110320170729-0002009",
+        "makerId": "khoa.hoang.2@fecredit.com.vn",
+        "makerDate": null,
+        "authStatus": "A",
+        "recordStatus": "I",
+        "checkerId": null,
+        "checkerDate": null,
+        "modNo": null,
+        "tenantCode": "FECREDIT",
+        "customerId": "13899155",
+        "contractId": "20170729-0002009"
+    }
+}

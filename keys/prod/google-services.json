@@ -1,0 +1,50 @@
+{
+  "project_info": {
+    "project_number": "776673480428",
+    "firebase_url": "https://athena-production-56ef8-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "athena-production-56ef8",
+    "storage_bucket": "athena-production-56ef8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:776673480428:android:a310f0023034b459cd1fc9",
+        "android_client_info": {
+          "package_name": "com.a4b.athenahunt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "776673480428-k1rgrtec0nvq5svfljjl8vgssnfcjn36.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.a4b.athenahunt",
+            "certificate_hash": "31ac955f136d58779e30568b8632c1a2b0d2d98f"
+          }
+        },
+        {
+          "client_id": "776673480428-tu8ihjckdc928apkcrbjsn8euip1ub22.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "776673480428-tu8ihjckdc928apkcrbjsn8euip1ub22.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "776673480428-41rvothvbfrsrkaorn3dpaa5bolcgm0r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.a4b.athenahunt"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

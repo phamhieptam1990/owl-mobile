@@ -1,0 +1,252 @@
+name: athena
+description: A new Flutter project.
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `pub publish`. This is preferred for private packages.
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+version: 1.0.0+1
+
+environment:
+  # sdk: ">=2.11.0 <3.0.0"
+  sdk: ">=2.12.0 <4.0.0"
+  flutter: ">=3.0.0"
+dependencies:
+  flutter:
+    sdk: flutter
+  #show images from the internet and keep them in the cache directory
+  cached_network_image: ^3.2.3
+  flutter_cache_manager: ^3.3.1
+
+  get: ^4.6.5
+  dio: ^5.2.1+1
+  pull_to_refresh: ^2.0.0
+  # android_intent: ^2.0.2
+  android_intent_plus: ^5.3.0
+  flutter_custom_clippers: ^2.1.0
+  # device_apps: ^2.2.0
+  salomon_bottom_bar: ^3.3.2
+  flutter_web_browser: ^0.17.1
+  equatable: ^2.0.5
+  local_auth: ^2.3.0
+  # flutter_app_badger: ^1.5.0
+  flutter_app_badge: ^2.0.2
+  #firebase services
+  cloud_firestore: ^4.5.2
+  firebase_core: ^2.27.0
+  firebase_messaging: ^14.7.9
+  firebase_crashlytics: ^3.1.1
+  # firebase_performance: ^0.9.1+1
+  firebase_performance: ^0.9.4+7
+
+  firebase_auth: ^4.4.2
+  firebase_analytics: ^10.2.1
+
+
+  camera: ^0.10.5+2
+  fl_chart: ^0.70.2
+  image_picker: ^1.0.1
+  event_bus: ^2.0.0
+  scroll_to_index: ^3.0.1
+  shared_preferences: ^2.2.0
+  photo_view: ^0.15.0
+  # connectivity: ^3.0.6
+  connectivity_plus: ^6.1.3
+  after_layout: ^1.2.0
+  # device_info: ^2.0.3
+  provider: ^6.0.5
+  # flutter_jailbreak_detection: ^1.10.0
+  # flutter_jailbreak_detection:
+  #   git:
+  #     url:  https://github.com/nguyenthanhphap1413/flutter_jailbreak_detection.git
+  #     ref:  21a481728eb5a078178cb7f76691f13383ac1092
+  developer_options: 0.6.2
+
+  intl: ^0.19.0
+  flutter_spinkit: ^5.2.0
+  flutter_widget_from_html: ^0.10.3
+  flutter_speed_dial: ^7.0.0
+  get_it: ^7.6.0
+  google_maps_flutter: ^2.3.0
+  background_fetch: ^1.1.6
+  # background_fetch: 0.7.2
+  flutter_background_geolocation: ^4.16.9
+  permission_handler: ^10.4.3
+  adaptive_dialog: ^1.8.3+1
+  flutter_easyloading: ^3.0.5
+  url_launcher: ^6.1.11
+  flutter_datetime_picker_plus: 2.2.0
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  geolocator: ^9.0.2
+  # downloads_path_provider_28: ^0.1.2
+  # ext_storage: 1.0.3
+  # location: 4.3.0
+  # geocoding: ^2.0.0
+  path_provider: ^2.1.5
+  shimmer: ^3.0.0
+  #TODO implement later table_calendar
+  table_calendar: ^3.0.8
+  progress_state_button: ^1.0.4
+  # dropdown_formfield: 0.1.4
+  date_field: ^4.0.2
+  file_picker: 10.0.0
+  # open_file: 3.5.8
+  call_log: 5.0.5
+  flutter_phone_direct_caller: ^2.1.1
+  modal_bottom_sheet: ^3.0.0-pre
+  easy_dialog: ^1.1.1
+  # flutter_search_bar: ^3.0.0
+  flutter_svg: ^2.0.5
+  # animated_search_bar: ^2.0.2
+  # flutter_apns: ^1.6.0
+  image_cropper: ^9.1.0
+  # flutter_webview_plugin: ^0.4.0
+  webview_flutter: ^4.4.2
+  share_plus: ^10.1.4
+  # location: 4.3.0
+  # syncfusion_flutter_pdf: 19.1.55-beta
+  flutter_secure_storage: ^8.0.0
+  yaml: ^3.1.2
+  youtube_player_flutter: ^9.1.1
+  # native_pdf_view: ^6.0.0+1
+  flutter_pdfview: ^1.4.0
+  intro_slider: ^4.2.0
+  tutorial_coach_mark: ^1.2.9
+  # new_version: 0.3.1
+  new_version_plus: ^0.1.0
+  flutter_exit_app: ^1.1.2
+  #enables In App Updates on Android using the official Android APIs.
+  in_app_update: ^4.1.4
+  # flutter_inappwebview: ^6.1.5
+  # hypersnapsdk_flutter: 1.1.4
+  # hypersnapsdk_flutter: ^1.3.1
+  #A set of cryptographic hashing functions implemented in pure Dart
+  crypto: ^3.0.3
+  device_info_plus: ^10.0.1
+  ios_utsname_ext: ^2.2.0
+  flutter_udid: ^2.0.1
+  package_info_plus: 8.3.0
+  # awesome_notifications: ^0.9.1+1
+  open_filex: ^4.3.2
+  # A Flutter plugin project to help with App/Deep Links (Android) and Universal Links and Custom URL schemes (iOS).
+  # uni_links: ^0.5.1
+  # firebase_analytics: 9.3.8
+
+  # stream_chat_flutter:
+  #   path: lib_include/stream_chat_flutter-1.4.0-beta
+  # stream_chat_flutter_core:
+  #   path: lib_include/stream_chat_flutter_core-1.4.0-beta
+  # # stream_chat:
+  # #     path: lib_include/stream_chat-1.4.0-beta
+  # streaming_shared_preferences:
+  #   path: lib_include/streaming_shared_preferences-1.0.2
+
+  # flutter_local_notifications:
+  #     path: lib_include/flutter_local_notifications-2.0.2
+  # streaming_shared_preferences: ^1.0.2
+  # flutter_local_notifications: ^2.0.2
+  # stream_chat_persistence:
+  #     path: lib_include/stream_chat_persistence-1.4.0-beta
+
+  # syncfusion_flutter_charts: ^19.1.69+1
+  # syncfusion_flutter_gauges: ^19.1.67
+  # stream_chat_flutter_core: ^1.0.0-beta
+  # equatable: ^1.2.5
+
+  # flutter_phone_state: ^0.5.8
+  # geocoder: ^0.2.1
+  # easy_localization: 2.3.3/
+  toggle_list: ^0.3.0
+  amplify_flutter: 2.6.1
+  amplify_auth_cognito: 2.6.1
+  amplify_api: 2.6.1 
+  # flutter_native_splash: 2.2.19
+  #This package aims to support different Flutter targets by relying on the many platforms supported by Sentry with native SDKs.
+  # sentry_flutter: ^7.8.0
+
+  flutter_localizations:
+    sdk: flutter
+  flutter_keyboard_visibility_web: ^2.0.0
+  vietmap_flutter_gl: 4.0.1
+  http: any
+  meta: any
+dependency_overrides:
+  flutter_jailbreak_detection: 
+    path: packages/flutter_jailbreak_detection
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: "^0.13.1"
+  # json_serializable: ^3.2.3
+  hive_generator: ^2.0.0
+  build_runner: ^2.3.3
+# Run this script to generate the app icon: flutter pub run flutter_launcher_icons:main
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/app_logo_ios.png"
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter.
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/images/map/
+    - assets/images/chart/
+    - assets/data/
+    - assets/
+    - assets/fitness_app/
+    - assets/cert/uat/
+    - assets/cert/prod/
+    - assets/cert/dev/
+    - assets/icons/
+  # fonts:
+  #   - family: MyFont
+  #     fonts:
+  #       - asset: assets/fonts/sspu.ttf
+  #   - family: MaterialIcons
+  #     fonts:
+  #       - asset: assets/fonts/MaterialIcons.ttf
+  #   - family: Entypo
+  #     fonts:
+  #       - asset: assets/fonts/Entypo.ttf
+  # - family: FontAwesome
+  #   fonts:
+  #     - asset: assets/fonts/FontAwesome.ttf
+  # - family: MaterialCommunityIcons
+  #   fonts:
+  #     - asset: assets/fonts/MaterialCommunityIcons.ttf
+  # - family: Feather
+  #   fonts:
+  #     - asset: assets/fonts/Feather.ttf
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.io/assets-and-images/#resolution-aware.
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.io/assets-and-images/#from-packages
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.io/custom-fonts/#from-packages
+flutter_intl:
+  enabled: true

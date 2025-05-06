@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "118836796888",
+    "firebase_url": "https://athena-uat-7e581-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "athena-uat-7e581",
+    "storage_bucket": "athena-uat-7e581.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:118836796888:android:0c346c33116d55eb4ee6ad",
+        "android_client_info": {
+          "package_name": "com.a4b.athenahuntdev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDq1YbblO3JSutU2y_56Fpg6gALxwSMcak"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

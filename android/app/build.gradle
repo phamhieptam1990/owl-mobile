@@ -1,0 +1,182 @@
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterRoot = localProperties.getProperty('flutter.sdk')
+if (flutterRoot == null) {
+    throw new Exception("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
+}
+
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode') ?: '10002'
+def flutterVersionName = localProperties.getProperty('flutter.versionName') ?: '1.0.2'
+
+def keystorePropertiesUat = new Properties()
+def keystorePropertiesFileUat = rootProject.file('key_uat.properties')
+if (keystorePropertiesFileUat.exists()) {
+    keystorePropertiesUat.load(new FileInputStream(keystorePropertiesFileUat))
+}
+
+def keystorePropertiesProd = new Properties()
+def keystorePropertiesFileProd = rootProject.file('key_prod.properties')
+if (keystorePropertiesFileProd.exists()) {
+    keystorePropertiesProd.load(new FileInputStream(keystorePropertiesFileProd))
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+
+// flutter_background_geolocation
+def background_geolocation = project(':flutter_background_geolocation')
+apply from: "${background_geolocation.projectDir}/background_geolocation.gradle"
+
+android {
+    compileSdkVersion 35
+    ndkVersion = "27.0.12077973"
+    namespace "com.a4b.athenahuntdev"
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+        coreLibraryDesugaringEnabled true
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+
+    kotlin {
+        jvmToolchain(17)
+    }
+
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17)
+        }
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+        unitTests.all { enabled = false }
+    }
+
+    lint {
+        abortOnError false
+        checkReleaseBuilds false
+        disable 'InvalidPackage'
+    }
+
+    sourceSets {
+        uat {
+            manifest.srcFile 'src/uat/AndroidManifest.xml'
+        }
+        prod {
+            manifest.srcFile 'src/prod/AndroidManifest.xml'
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.a4b.athenahuntdev"
+        targetSdkVersion 35
+        minSdkVersion 24
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86_64'
+        }
+    }
+
+    signingConfigs {
+        releaseUat {
+            keyAlias keystorePropertiesUat['keyAlias']
+            keyPassword keystorePropertiesUat['keyPassword']
+            storeFile file(keystorePropertiesUat['storeFile'])
+            storePassword keystorePropertiesUat['storePassword']
+        }
+
+        releaseProd {
+            keyAlias keystorePropertiesProd['keyAlias']
+            keyPassword keystorePropertiesProd['keyPassword']
+            storeFile file(keystorePropertiesProd['storeFile'])
+            storePassword keystorePropertiesProd['storePassword']
+        }
+    }
+
+    flavorDimensions "env"
+
+    productFlavors {
+        uat {
+            dimension "env"
+            applicationId "com.a4b.athenahuntdev"
+            namespace "com.a4b.athenahuntdev"
+            versionCode 100090
+            versionName "1.00.90"
+            manifestPlaceholders = [callback_url: "athenahuntdev"]
+            resValue "string", "app_name", "Athena Owl UAT"
+            resValue "string", "manager_license", "a9ad0b03778053c1cad1e6941fad6040f54ced1a35902526df0ef3c76f537faa"
+            resValue "string", "api_key", "AIzaSyCqRrwVKrcZyI6TPRcZR1V31WkTG-03gAc"
+            resValue "string", "unilinks", "huntdev"
+            signingConfig signingConfigs.releaseUat
+        }
+        prod {
+            dimension "env"
+            applicationId "com.a4b.athenahunt"
+            namespace "com.a4b.athenahunt"
+            versionCode 100090
+            versionName "1.00.90"
+            manifestPlaceholders = [callback_url: "athenahunt"]
+            resValue "string", "app_name", "Athena Owl"
+            resValue "string", "manager_license", "5262ba2242cb7b3e068c8141c03d3c2c9278c2614fa0f956e2991a0ace64f608"
+            resValue "string", "api_key", "AIzaSyBzTH4z7oNEdZqxSxv-j0VKHs1_71Su7OQ"
+            resValue "string", "unilinks", "huntdev"
+            signingConfig signingConfigs.releaseProd
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
+                  "${background_geolocation.projectDir}/proguard-rules.pro",
+                  "proguard-rules.pro"
+        }
+        debug {
+            signingConfig signingConfigs.debug
+        }
+    }
+}
+
+flutter {
+    source '../..'
+}
+
+dependencies {
+    implementation "androidx.appcompat:appcompat:${rootProject.ext.appCompatVersion}"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.so', '**/*.so'])
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test:runner:1.5.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    implementation 'androidx.core:core:1.12.0'
+    implementation "com.google.android.gms:play-services-location:21.0.1"
+    implementation 'com.google.android.gms:play-services-maps:18.1.0'
+    implementation 'com.google.android.gms:play-services-base:18.4.0'
+
+    implementation platform('com.google.firebase:firebase-bom:32.7.2')
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation 'com.google.firebase:firebase-perf'
+    implementation 'com.google.firebase:firebase-crashlytics'
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.4'
+    implementation 'com.google.firebase:firebase-analytics'
+}
+
+
+apply plugin: 'com.google.firebase.crashlytics'
+apply plugin: 'com.google.firebase.firebase-perf'
+apply plugin: 'com.google.gms.google-services'

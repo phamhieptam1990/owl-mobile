@@ -1,0 +1,35 @@
+{
+    "status": 0,
+    "data": [
+        {
+            "lastName": "PHAN THẾ",
+            "agentId": null,
+            "gender": 1,
+            "workEmail": "dang.phan.2@fecredit.com.vn",
+            "personalMail": null,
+            "empLevel": null,
+            "tenantCode": "FECREDIT",
+            "modNo": 0,
+            "checkerDate": null,
+            "hrtmPosition": null,
+            "id": 3,
+            "makerId": "son.nguyen.28@fecredit.com.vn",
+            "makerDate": 1604501476925,
+            "authStatus": "A",
+            "hrtbWorkingRecords": null,
+            "fullName": "ĐĂNG PHAN THẾ",
+            "userName": null,
+            "birthDate": 1585699200000,
+            "firstName": "ĐĂNG",
+            "recordStatus": "O",
+            "reportEmpId": null,
+            "mobilePhone": null,
+            "empCode": "FC2861",
+            "checkerId": null,
+            "workPhone": "0969950746",
+            "aggId": null,
+            "hrtmUnit": null,
+            "ftsValue": null
+        }
+    ]
+}

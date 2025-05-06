@@ -1,0 +1,66 @@
+{
+  "project_info": {
+    "project_number": "118836796888",
+    "firebase_url": "https://athena-uat-7e581-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "athena-uat-7e581",
+    "storage_bucket": "athena-uat-7e581.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:118836796888:android:ce90a4fd7ec04a254ee6ad",
+        "android_client_info": {
+          "package_name": "com.a4b.athenahuntdev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "118836796888-igmmnijldum73m2sj4iv1jtkhv31nk08.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.a4b.athenahuntdev",
+            "certificate_hash": "31ac955f136d58779e30568b8632c1a2b0d2d98f"
+          }
+        },
+        {
+          "client_id": "118836796888-ilnebjumvgpfq4r9g702j4q2vn0g11fr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.a4b.athenahuntdev",
+            "certificate_hash": "5d7abae71521c969ca1f6b044eb392c2c5ea7e56"
+          }
+        },
+        {
+          "client_id": "118836796888-rktohdl30afecq8b895ff0h47j098c4f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.a4b.athenahuntdev",
+            "certificate_hash": "5cb1d9b940afdccb172365985112567e7630b335"
+          }
+        },
+        {
+          "client_id": "118836796888-9q6vg2rv8ksn25rkrpnldlhhj7rmg238.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "118836796888-9q6vg2rv8ksn25rkrpnldlhhj7rmg238.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "118836796888-o9rqm8n6eoi2s1nq5q30fs6t72epqk2p.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.a4b.athenahuntdev"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

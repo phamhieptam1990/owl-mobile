@@ -1,0 +1,81 @@
+keytool -list -v -keystore athena_dev.keystore -alias com.a4b.athenahuntdev 
+Enter keystore password:  
+Alias name: com.a4b.athenahuntdev
+Creation date: Aug 4, 2023
+Entry type: PrivateKeyEntry
+Certificate chain length: 1
+Certificate[1]:
+Owner: CN=athena, OU=athena, O=athena, L=athena, ST=athena, C=VN
+Issuer: CN=athena, OU=athena, O=athena, L=athena, ST=athena, C=VN
+Serial number: 6798ea1c
+Valid from: Fri Aug 04 14:22:20 ICT 2023 until: Tue Dec 20 14:22:20 ICT 2050
+Certificate fingerprints:
+	 SHA1: 5C:B1:D9:B9:40:AF:DC:CB:17:23:65:98:51:12:56:7E:76:30:B3:35
+	 SHA256: 4B:EC:24:B5:BC:0D:CE:00:DB:4F:0D:B6:66:B8:4B:BF:43:E7:69:9F:D0:8F:EC:73:39:0D:27:BD:1A:3F:E9:AB
+Signature algorithm name: SHA256withRSA
+Subject Public Key Algorithm: 2048-bit RSA key
+Version: 3
+
+Extensions: 
+
+#1: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: 24 51 7D 29 91 03 A3 5A   AE 3F 52 3B B9 05 AD 6D  $Q.)...Z.?R;...m
+0010: 9F BB 30 14                                        ..0.
+]
+]
+
+=== debug ==============
+Users/macbook/.android/ keytool -keystore debug.keystore -list -v
+Enter keystore password:
+
+*****************  WARNING WARNING WARNING  *****************
+* The integrity of the information stored in your keystore  *
+* has NOT been verified!  In order to verify its integrity, *
+* you must provide your keystore password.                  *
+*****************  WARNING WARNING WARNING  *****************
+
+Keystore type: JKS
+Keystore provider: SUN
+
+Your keystore contains 1 entry
+
+Alias name: androiddebugkey
+Creation date: 27 Oct 2020
+Entry type: PrivateKeyEntry
+Certificate chain length: 1
+Certificate[1]:
+Owner: C=US, O=Android, CN=Android Debug
+Issuer: C=US, O=Android, CN=Android Debug
+Serial number: 1
+Valid from: Tue Oct 27 10:24:30 ICT 2020 until: Thu Oct 20 10:24:30 ICT 2050
+Owner: C=US, O=Android, CN=Android Debug
+Issuer: C=US, O=Android, CN=Android Debug
+Serial number: 1
+Valid from: Sat Mar 13 17:41:53 ICT 2021 until: Mon Mar 06 17:41:53 ICT 2051
+Certificate fingerprints:
+	 SHA1: 5D:7A:BA:E7:15:21:C9:69:CA:1F:6B:04:4E:B3:92:C2:C5:EA:7E:56
+	 SHA256: 29:71:AA:93:06:E1:30:3D:60:A5:9C:DE:32:A8:31:76:EB:91:FD:E2:69:8F:49:2C:F5:5D:C3:94:98:E1:B6:04
+Signature algorithm name: SHA1withRSA (weak)
+Subject Public Key Algorithm: 2048-bit RSA key
+Version: 1
+
+
+*******************************************
+*******************************************
+
+
+
+Warning:
+The JKS keystore uses a proprietary format. It is recommended to migrate to PKCS12 which is an industry standard format using "keytool -importkeystore -srckeystore debug.keystore -destkeystore debug.keystore -deststoretype pkcs12".
+
+
+
+
+1. com.a4b.athenahuntdev
+a9ad0b03778053c1cad1e6941fad6040f54ced1a35902526df0ef3c76f537faa
+
+
+2. com.a4b.athenahunt
+5262ba2242cb7b3e068c8141c03d3c2c9278c2614fa0f956e2991a0ace64f608

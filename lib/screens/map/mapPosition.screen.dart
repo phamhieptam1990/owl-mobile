@@ -1,0 +1,377 @@
+// import 'dart:async';
+// import 'package:after_layout/after_layout.dart';
+// import 'package:dio/dio.dart';
+// import 'package:flutter/material.dart';
+// import 'package:athena/models/map/location.model.dart';
+// // import 'package:google_maps_flutter/google_maps_flutter.dart';
+// import 'package:athena/common/constants/color.dart';
+// import 'package:athena/common/constants/general.dart';
+// import 'package:athena/generated/l10n.dart';
+// import 'package:athena/models/tickets/mapTicket.model.dart';
+// import 'package:athena/models/tickets/ticket.model.dart';
+// import 'package:athena/screens/collections/collections.service.dart';
+// import 'package:athena/screens/map/map.service.dart';
+// import 'package:athena/utils/app_state.dart';
+// import 'package:athena/widgets/common/appbar.dart';
+// import 'package:athena/widgets/common/call_sms_log/call_sms_log.dart';
+// import 'package:athena/widgets/common/common.dart';
+// import 'package:athena/screens/map/map.provider.dart';
+// import 'package:athena/getit.dart';
+// import 'package:athena/utils/utils.dart';
+
+// class MapScreenPosition extends StatefulWidget {
+//   MapScreenPosition({Key key}) : super(key: key);
+//   @override
+//   _MapScreenPositionState createState() => _MapScreenPositionState();
+// }
+
+// class _MapScreenPositionState extends State<MapScreenPosition>
+//     with AfterLayoutMixin {
+//   final _mapService = new MapService();
+//   final GlobalKey<ScaffoldState> _scaffoldKey =
+//       new GlobalKey<ScaffoldState>(debugLabel: 'mapPosition');
+//   Completer<GoogleMapController> mapController = Completer();
+//   CollectionService _collectionService = new CollectionService();
+//   final _mapProvider = getIt<MapProvider>();
+//   LatLng _center;
+//   Future _mapFuture = Future.delayed(Duration(milliseconds: 500), () => true);
+
+//   final List<Marker> _markers = <Marker>[];
+//   MapTicketModel currentNode;
+//   TicketModel ticketModel;
+//   Map<PolylineId, Polyline> polylines = {};
+//   List<LatLng> polylineCoordinates = [];
+//   // PolylinePoints polylinePoints = PolylinePoints();
+//   @override
+//   void initState() {
+//     super.initState();
+//   }
+
+//   void hanleAddressToGetMarker() async {
+//     try {
+//       String lstCustomerId = currentNode.customerId.toString();
+//       Response resMap =
+//           await _collectionService.getLocationFromAddress(lstCustomerId);
+//       if (Utils.checkRequestIsComplete(resMap)) {
+//         var responseData = Utils.handleRequestData(resMap);
+//         if (Utils.checkIsNotNull(responseData)) {
+//           responseData.forEach((key, value) {
+//             if (currentNode.customerId == key) {
+//               if (Utils.isArray(value)) {
+//                 final locationTemp = value[0];
+//                 if (Utils.checkIsNotNull(locationTemp['latitude']) &&
+//                     Utils.checkIsNotNull(locationTemp['longitude'])) {
+//                   double latitude = double.parse(locationTemp['latitude']);
+//                   double longitude = double.parse(locationTemp['longitude']);
+//                   LatLng _location = new LatLng(latitude, longitude);
+//                   if (Utils.checkIsNotNull(_location)) {
+//                     Location location = new Location(
+//                         latitude: _location.latitude,
+//                         longitude: _location.longitude,
+//                         timestamp: DateTime.now());
+//                     currentNode.location = location;
+//                     _markers.add(Marker(
+//                         onTap: () async {
+//                           changeInfoCustomer(currentNode, 0, _markers.length);
+//                         },
+//                         markerId: MarkerId(currentNode.id.toString()),
+//                         position:
+//                             new LatLng(location.latitude, location.longitude),
+//                         infoWindow: InfoWindow(title: currentNode.issueName)));
+//                   }
+//                 }
+//               }
+//             }
+//           });
+//         }
+//       }
+//     } catch (e) {
+//       setState(() {});
+//     } finally {
+//       setState(() {});
+//     }
+//   }
+
+//   void changeInfoCustomer(
+//       MapTicketModel mapTicketModel, int index, int length) async {
+//     setState(() {});
+//   }
+
+//   void _onMapCreated(GoogleMapController controller) {
+//     mapController.complete(controller);
+//   }
+
+//   @override
+//   void afterFirstLayout(BuildContext context) async {
+//     hanleAddressToGetMarker();
+//   }
+
+//   Widget infomation(BuildContext context) {
+//     return Container(
+//       child: Text(S.of(context).APP_NAME),
+//     );
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     ticketModel = ModalRoute.of(context).settings.arguments;
+//     if (currentNode == null) {
+//       currentNode = new MapTicketModel(
+//           customerId: ticketModel.customerId,
+//           issueName: ticketModel.issueName,
+//           actionGroupName: ticketModel.actionGroupName,
+//           statusCode: ticketModel.statusCode,
+//           location: new Location(
+//               latitude: 0.0, longitude: 0.0, timestamp: DateTime.now()),
+//           cusFullAddress: ticketModel.cusFullAddress,
+//           customerData: ticketModel.customerData);
+//     }
+//     if (_center == null) {
+//       _center = _mapProvider.centerPosition;
+//     }
+//     return Scaffold(
+//       key: _scaffoldKey,
+//       appBar: AppBarCommon(
+//         lstWidget: [],
+//         title: S.of(context).seeMap,
+//       ),
+//       body: buildMap(context),
+//     );
+//   }
+
+//   Widget drawMap(BuildContext context) {
+//     return Container(
+//         height: AppState.getHeightDevice(context),
+//         width: AppState.getWidthDevice(context),
+//         child: GoogleMap(
+//             tiltGesturesEnabled: true,
+//             compassEnabled: true,
+//             scrollGesturesEnabled: true,
+//             zoomGesturesEnabled: true,
+//             polylines: polyLines,
+//             mapType: MapType.normal,
+//             markers: Set<Marker>.of(_markers),
+//             myLocationEnabled: true,
+//             myLocationButtonEnabled: true,
+//             onMapCreated: _onMapCreated,
+//             initialCameraPosition: CameraPosition(
+//               target: _center,
+//               zoom: 12,
+//             )));
+//   }
+
+//   Widget _buildContainer(BuildContext context) {
+//     return Align(
+//       alignment: Alignment.bottomLeft,
+//       child: Container(
+//         height: 130.0,
+//         child: _boxes(currentNode),
+//       ),
+//     );
+//   }
+
+//   Widget _boxes(MapTicketModel detail) {
+//     // return GestureDetector(
+//     //     onTap: () {
+//     //       // _gotoLocation(lat,long);
+//     //     },
+//     //     child: Container(
+//     //       width: AppState.getWidthDevice(context),
+//     //       child: Container(
+//     //         color: Colors.white,
+//     //         child: _buildLeadingTile(detail, context),
+//     //       ),
+//     //     ));
+//     return Container(
+//       width: AppState.getWidthDevice(context),
+//       child: Container(
+//         color: Colors.white,
+//         child: _buildLeadingTile(detail, context),
+//       ),
+//     );
+//   }
+
+//   Widget _buildLeadingTileDetail(MapTicketModel detail, BuildContext context) {
+//     return new Column(
+//       crossAxisAlignment: CrossAxisAlignment.start,
+//       mainAxisAlignment: MainAxisAlignment.start,
+//       children: <Widget>[
+//         Text(
+//           (detail.actionGroupName != null)
+//               ? detail.actionGroupName
+//               : _collectionService.convertStatusCode(
+//                   detail?.statusCode, context),
+//           style: TextStyle(fontSize: 12.0, color: Colors.black54),
+//         ),
+//         new SizedBox(height: 4.0),
+//       ],
+//     );
+//   }
+
+//   handleSmsCallLog(action, ticketModel, type) async {
+//     var smsFrom = DateTime.now();
+//     var callFrom = DateTime.now();
+//     final result = await Navigator.push(
+//         context,
+//         MaterialPageRoute(
+//             builder: (context) => CallSmsLog(
+//                   type: type,
+//                   action: action,
+//                   smsFrom: smsFrom,
+//                   callFrom: callFrom,
+//                   ticketModel: ticketModel,
+//                   phone: '',
+//                 )));
+
+//     if (result == true) {
+//       // await getTicketHistory(isSetTate: true);
+//     }
+//   }
+
+//   Widget _buildLeadingTile(MapTicketModel detail, BuildContext context) {
+//     return new Column(
+//       crossAxisAlignment: CrossAxisAlignment.start,
+//       children: <Widget>[
+//         ListTile(
+//           leading: CircleAvatar(
+//             child: Text(detail.issueName[0],
+//                 style: TextStyle(color: AppColor.white)),
+//             backgroundColor: AppColor.primary,
+//           ),
+//           title: Text(detail.issueName),
+//           subtitle: _buildLeadingTileDetail(detail, context),
+//         ),
+//         Divider(
+//           height: 1.0,
+//         ),
+//         Row(
+//           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//           children: [
+//             TextButton(
+//               onPressed: () async => {
+//                 handleSmsCallLog(
+//                     _mapService.actionPhone(
+//                         currentNode, ActionPhone.CALL, context),
+//                     currentNode,
+//                     ActionPhone.CALL)
+//               },
+//               child: Column(
+//                 children: <Widget>[
+//                   Icon(
+//                     Icons.phone,
+//                     color: _collectionService.colorDisableAction(
+//                         currentNode, context),
+//                   ),
+//                   Text(S.of(context).phone,
+//                       style: TextStyle(color: Colors.black))
+//                 ],
+//               ),
+//             ),
+//             TextButton(
+//               onPressed: () async => {
+//                 await _mapService.openGoogleMaps(
+//                   detail.cusFullAddress,
+//                   context,
+//                   destinationLatitude: detail.location.latitude,
+//                   destinationLongitude: detail.location.longitude,
+//                   sourceLatitude: _center.latitude,
+//                   sourceLongitude: _center.longitude,
+//                 )
+//               },
+//               onLongPress: () async => {await _getPolyline()},
+//               child: Column(
+//                 children: <Widget>[
+//                   Icon(
+//                     Icons.near_me,
+//                     color: _collectionService.colorDisableAction(
+//                         currentNode, context),
+//                   ),
+//                   Text(S.of(context).direction,
+//                       style: TextStyle(color: Colors.black))
+//                 ],
+//               ),
+//             ),
+//             TextButton(
+//               onPressed: () async => {
+//                 handleSmsCallLog(
+//                     _mapService.actionPhone(
+//                         currentNode, ActionPhone.SMS, context),
+//                     currentNode,
+//                     ActionPhone.SMS)
+//                 // _mapService.actionPhone(currentNode, ActionPhone.SMS, context)
+//               },
+//               child: Column(
+//                 children: <Widget>[
+//                   Icon(
+//                     Icons.sms,
+//                     color: _collectionService.colorDisableAction(
+//                         currentNode, context),
+//                   ),
+//                   Text(S.of(context).SMS, style: TextStyle(color: Colors.black))
+//                 ],
+//               ),
+//             ),
+//           ],
+//         ),
+//       ],
+//     );
+//   }
+
+//   _getPolyline() async {
+//     WidgetCommon.showLoading();
+//     LatLng destination =
+//         LatLng(currentNode.location.latitude, currentNode.location.longitude);
+//     String route = await _mapService.getRouteCoordinates(_center, destination);
+//     createRoute(route);
+//   }
+
+//   final Set<Polyline> _polyLines = {};
+//   Set<Polyline> get polyLines => _polyLines;
+
+//   void createRoute(String encondedPoly) {
+//     if (encondedPoly == '') {
+//       WidgetCommon.dismissLoading();
+//       return;
+//     }
+//     _polyLines.add(Polyline(
+//         polylineId: PolylineId(currentNode.issueName.toString()),
+//         width: 4,
+//         points:
+//             _mapService.convertToLatLng(_mapService.decodePoly(encondedPoly)),
+//         color: Colors.red));
+//     WidgetCommon.dismissLoading();
+//     setState(() {});
+//   }
+
+//   dynamic buildMap(BuildContext context) {
+//     return FutureBuilder<dynamic>(
+//       future: _mapFuture,
+//       builder: (context, snapshot) {
+//         if (!snapshot.hasData || _center == null) {
+//           return Container(
+//               height: AppState.getHeightDevice(context),
+//               width: AppState.getWidthDevice(context),
+//               child: Center(
+//                 child: WidgetCommon.buildCircleLoading(),
+//               ));
+//         }
+//         return Stack(children: [
+//           drawMap(context),
+//           (currentNode != null) ? _buildContainer(context) : Container()
+//         ]);
+//       },
+//     );
+//   }
+
+//   @override
+//   void dispose() {
+//     super.dispose();
+//   }
+
+//   @override
+//   void setState(fn) {
+//     if (mounted) {
+//       super.setState(fn);
+//     }
+//   }
+// }

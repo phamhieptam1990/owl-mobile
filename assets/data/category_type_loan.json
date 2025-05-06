@@ -1,0 +1,39 @@
+{
+    "status": 0,
+    "data": [
+        {
+            "fieldTypeValue": "LOAN",
+            "makerDate": null,
+            "orderNo": null,
+            "fieldTypeCode": "LOAN",
+            "authStatus": "A",
+            "description": null,
+            "tenantCode": null,
+            "modNo": 0,
+            "recordStatus": "O",
+            "fieldTypeName": "Vay tiêu dùng",
+            "checkerDate": null,
+            "checkerId": null,
+            "id": 1,
+            "createDate": 1604512624946,
+            "makerId": "admin"
+        },
+        {
+            "fieldTypeValue": "CARD",
+            "makerDate": null,
+            "orderNo": null,
+            "fieldTypeCode": "CARD",
+            "authStatus": "A",
+            "description": null,
+            "tenantCode": null,
+            "modNo": 0,
+            "recordStatus": "O",
+            "fieldTypeName": "Vay thẻ FE",
+            "checkerDate": null,
+            "checkerId": null,
+            "id": 2,
+            "createDate": 1604512624946,
+            "makerId": "admin"
+        }
+    ]
+}

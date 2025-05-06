@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "71562081737",
+    "project_id": "athena-owl-prod",
+    "storage_bucket": "athena-owl-prod.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71562081737:android:0c8e5324e6391c4822a418",
+        "android_client_info": {
+          "package_name": "com.a4b.athenahunt"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxk9oMRNXCE2Z7O3ddgSype5NDps5s8xU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

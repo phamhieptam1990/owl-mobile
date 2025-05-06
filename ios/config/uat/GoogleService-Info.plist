@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>118836796888-o9rqm8n6eoi2s1nq5q30fs6t72epqk2p.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.118836796888-o9rqm8n6eoi2s1nq5q30fs6t72epqk2p</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>118836796888-igmmnijldum73m2sj4iv1jtkhv31nk08.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCPsKgT4UulDKye7nHQqyS3nfXz2hD68V8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>118836796888</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.a4b.athenahuntdev</string>
+	<key>PROJECT_ID</key>
+	<string>athena-uat-7e581</string>
+	<key>STORAGE_BUCKET</key>
+	<string>athena-uat-7e581.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:118836796888:ios:a305b33e7272ca6e4ee6ad</string>
+	<key>DATABASE_URL</key>
+	<string>https://athena-uat-7e581-default-rtdb.asia-southeast1.firebasedatabase.app</string>
+</dict>
+</plist>

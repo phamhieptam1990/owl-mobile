@@ -1,0 +1,73 @@
+{
+    "status": 0,
+    "data": [
+        {
+            "makerDate": null,
+            "orderNo": 1,
+            "authStatus": "A",
+            "description": null,
+            "actionGroupValue": null,
+            "fieldTypeId": 1,
+            "modNo": 0,
+            "actionGroupName": "Promise to Pay",
+            "recordStatus": "O",
+            "checkerDate": null,
+            "actionGroupCode": "PTP",
+            "checkerId": null,
+            "id": 1,
+            "createDate": 1604513012339,
+            "makerId": "admin"
+        },
+        {
+            "makerDate": null,
+            "orderNo": 2,
+            "authStatus": "A",
+            "description": null,
+            "actionGroupValue": null,
+            "fieldTypeId": 1,
+            "modNo": 0,
+            "actionGroupName": "Refuse to Pay",
+            "recordStatus": "O",
+            "checkerDate": null,
+            "actionGroupCode": "RTP",
+            "checkerId": null,
+            "id": 2,
+            "createDate": 1604513012339,
+            "makerId": "admin"
+        },
+        {
+            "makerDate": null,
+            "orderNo": 3,
+            "authStatus": "A",
+            "description": null,
+            "actionGroupValue": null,
+            "fieldTypeId": 1,
+            "modNo": 0,
+            "actionGroupName": "Partial payment and Full payment",
+            "recordStatus": "O",
+            "checkerDate": null,
+            "actionGroupCode": "PAY",
+            "checkerId": null,
+            "id": 3,
+            "createDate": 1604513012339,
+            "makerId": "admin"
+        },
+        {
+            "makerDate": null,
+            "orderNo": 4,
+            "authStatus": "A",
+            "description": null,
+            "actionGroupValue": null,
+            "fieldTypeId": 1,
+            "modNo": 0,
+            "actionGroupName": "Other checkin",
+            "recordStatus": "O",
+            "checkerDate": null,
+            "actionGroupCode": "OTHER",
+            "checkerId": null,
+            "id": 4,
+            "createDate": 1604513012339,
+            "makerId": "admin"
+        }
+    ]
+}

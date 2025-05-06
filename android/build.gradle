@@ -1,0 +1,104 @@
+buildscript {
+    ext.kotlin_version = '1.9.0' // Khớp với Flutter 3.27.4
+    ext {
+        removeBackgroundGeolocationDebugSoundsInRelease = false
+        compileSdkVersion = 35
+        targetSdkVersion = 35
+        appCompatVersion = "1.6.1"
+        playServicesLocationVersion = "21.0.1"
+    }
+
+    repositories {
+        google()
+        mavenCentral()
+        // Nếu Flutter plugin không tìm thấy, bạn cũng có thể thử thêm:
+        maven { url 'https://storage.googleapis.com/download.flutter.io' }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.2.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.google.gms:google-services:4.4.2'
+        classpath 'com.google.firebase:perf-plugin:1.4.2'
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.9.9'
+        classpath platform('com.google.firebase:firebase-bom:32.7.2') 
+    }
+}
+
+subprojects {
+    afterEvaluate {
+        if (plugins.hasPlugin("kotlin-android")) {
+            android {
+                compileOptions {
+                    sourceCompatibility JavaVersion.VERSION_17
+                    targetCompatibility JavaVersion.VERSION_17
+                }
+            }
+            tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+                kotlinOptions {
+                    jvmTarget = "17"
+                }
+            }
+        }
+    }
+
+    def disableUnitTestTasksFor = ['android_intent_plus']
+    afterEvaluate { project ->
+        if (disableUnitTestTasksFor.contains(project.name)) {
+            project.tasks.matching { it.name.contains("UnitTest") }.configureEach {
+                enabled = false
+            }
+        }
+    }
+
+    def disableLintFor = ['android_intent_plus', 'device_info_plus', 'flutter_web_browser', 'geolocator_android', 'just_audio']
+    afterEvaluate { project ->
+        if (disableLintFor.contains(project.name)) {
+            project.tasks.matching { it.name.startsWith("lint") }.configureEach {
+                enabled = false
+            }
+        }
+    }
+}
+
+allprojects {
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+        kotlinOptions {
+            jvmTarget = "17"
+        }
+    }
+
+    tasks.withType(JavaCompile).configureEach {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    repositories {
+        google()
+        mavenCentral()
+        jcenter() 
+        maven {
+            url "${project(':background_fetch').projectDir}/libs"
+        }
+        maven { url "https://jitpack.io" }
+        maven {
+            url "${project(':flutter_background_geolocation').projectDir}/libs"
+        }
+    }
+    configurations.all {
+        resolutionStrategy {
+            force 'org.bouncycastle:bcprov-jdk18on:1.77'
+        }
+    }
+}
+
+rootProject.buildDir = '../build'
+
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+    project.evaluationDependsOn(':app')
+}
+
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}
